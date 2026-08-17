@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Script: igra_data_process.py
 Description: Performs preprocessing of IGRAv2 (Integrated Global Radiosonde Archive version 2) data.

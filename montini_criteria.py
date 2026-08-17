@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Script: montini_criteria.py
 Description: Performs the classification of Low-Level Jet (LLJ) events according to Montini et al. (2019) methodology (https://doi.org/10.1029/2018JD029634).
