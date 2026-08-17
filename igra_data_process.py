@@ -9,9 +9,15 @@ Project/Paper: "The Record-Breaking Low-Level Jet Event in Subtropical South Ame
 Repository: https://github.com/GuiMeteorology/record-breaking-llj-2026
 """
 
-# Import required libraries
+from pathlib import Path
 import pandas as pd
 import numpy as np
+
+# Path definitions following project directory standards:
+# BASE_DIR points to the repository root directory (one level up from 'scripts/')
+BASE_DIR = Path(__file__).resolve().parent.parent
+INPUT_PATH = BASE_DIR / "data" / "raw" / "igra-data.txt"
+OUTPUT_PATH = BASE_DIR / "data" / "processed" / "igra_processed.csv"
 
 
 def parse_igra2(path):
@@ -67,7 +73,7 @@ def parse_igra2(path):
     df["press_hpa"] = df["press"] / 100      # Pa -> hPa
     df["temp_c"]    = df["temp"] / 10        # Tenths of °C -> °C
     df["rh_pct"]    = df["rh"] / 10          # Scale adjustment for relative humidity
-    df["dpdp_c"]    = df["dpdp"] / 10        # Tenths of °C -> °C (dewpoint depression)
+    df["dpdp_c"]    = df["dpdp"] / 10        # Tenths of °C -> °C
     df["wspd_ms"]   = df["wspd"] / 10        # Tenths of m/s -> m/s
 
     # Create timestamp for each sounding observation
@@ -79,6 +85,10 @@ def parse_igra2(path):
     return df
 
 
-# Execute parser on target IGRAv2 station file and export processed data to CSV
-df = parse_igra2("/home/guimeteo/Downloads/BRM00083554-data.txt")
-df.to_csv('/home/guimeteo/Downloads/Teste.csv')
+if __name__ == "__main__":
+    # Ensure destination directories exist prior to saving
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    # Execute parser and export processed dataset to CSV
+    df = parse_igra2(INPUT_PATH)
+    df.to_csv(OUTPUT_PATH, index=False)
