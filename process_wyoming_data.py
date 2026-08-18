@@ -30,8 +30,8 @@ OUTPUT_CSV = f"soundings_{STATION_NUMBER}_processed.csv"
 # WMO station ID mapping to IGRAv2-formatted 11-character identifier.
 # If a station is not present in this mapping, the raw WMO number is used.
 STATION_ID_MAP = {
-    "ID": "IGRAv2-format", 
-    }
+    "83554": "BRM00083554",  # Corumbá (Airport), MS - Brazil
+}
 
 # Fixed-width format specification for Wyoming sounding tables (11 columns x 7 chars)
 COLSPECS = [

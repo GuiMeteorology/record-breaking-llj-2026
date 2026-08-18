@@ -27,16 +27,16 @@ import requests
 # ----------------------------------------------------------------------
 # Configuration
 # ----------------------------------------------------------------------
-STATION_NUMBER = "station_number"                 
-START_DATE = "initial_date"                
-END_DATE = "final_date"                  
+STATION_NUMBER = "83554"                 # Station ID (e.g., 83554 for Corumbá/MS, Brazil)
+START_DATE = "2007-01-01"                # Default start date (YYYY-MM-DD)
+END_DATE = "2026-07-21"                  # Default end date (YYYY-MM-DD)
 OUTPUT_DIR = f"soundings_{STATION_NUMBER}"  # Default directory to save output files
 
 BASE_URL = "https://weather.uwyo.edu/wsgi/sounding"
 FORM_URL = "https://weather.uwyo.edu/upperair/sounding.shtml"
 
 STANDARD_HOURS = [0, 12]                 # Standard radiosonde launch hours (UTC)
-ALL_HOURS = [0, 3, 6, 9, 12, 15, 18, 21]  # All synoptic hours offered by the website in some cases
+ALL_HOURS = [0, 3, 6, 9, 12, 15, 18, 21]  # All synoptic hours offered by the website
 
 # Regular expressions for parsing the HTML response
 RE_STATION_HEADER = re.compile(r"Observations for Station\s+\S+", re.IGNORECASE)

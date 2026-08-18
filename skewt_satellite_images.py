@@ -45,22 +45,26 @@ OUTPUT_DIR = "data/output"
 CACHE_DIR = "data/cache"
 
 # Input/Output Files
-DEFAULT_SOUNDING_CSV = os.path.join(INPUT_DIR, "input_soundings.csv")
+DEFAULT_SOUNDING_CSV = os.path.join(INPUT_DIR, "Santa_Maria_soundings.csv")
 OUTPUT_FIGURE_PATH = os.path.join(OUTPUT_DIR, "skewt_satellite_panel.png")
 
 # Target Station Metadata
-STATION_NAME = "station_name"
+STATION_NAME = "Santa Maria"
 
 # Selected Sounding Dates for Skew-T Plotting
 SELECTED_SOUNDING_DATES = [
-    'YYYY-MM-DD HH:MM:SS'
+    '2026-07-17 00:00:00', 
+    '2026-07-18 00:00:00', 
+    '2026-07-19 00:00:00', 
+    '2026-07-20 00:00:00', 
+    '2026-07-21 00:00:00'
 ]
 
 # GOES Satellite Image Configuration
-SATELLITE_DATETIME = "YYYY-MM-DD HH:MM"
-SATELLITE_NAME = "G19" # goes satellite
-SATELLITE_PRODUCT = "ABI-L2-CMIPF" # product
-SATELLITE_BAND = 13 # band
+SATELLITE_DATETIME = "2026-07-21 12:00"
+SATELLITE_NAME = "G19"
+SATELLITE_PRODUCT = "ABI-L2-CMIPF"
+SATELLITE_BAND = 13
 
 # Geographical Bounding Box (Lat/Lon extent for Satellite Plot)
 SAT_LAT_RANGE = (-36.0, -16.0)   # (lat_min, lat_max)
@@ -75,7 +79,10 @@ MAP_STATIONS = [
 
 # Country & State Labels for Map Overlay: (longitude, latitude, "Label")
 MAP_GEO_LABELS = [
-    (Lon, Lay, "Label")
+    (-64.0, -27.0, "ARG"), (-58.0, -23.0, "PRY"), 
+    (-63.5, -19.5, "BOL"), (-56.0, -32.5, "URY"),
+    (-54.8, -28.0, "RS"),  (-51.5, -27.2, "SC"), (-51.5, -24.8, "PR"), 
+    (-54.4, -20.3, "MS")
 ]
 
 # AWS S3 Buckets for GOES Satellites
@@ -601,7 +608,7 @@ def plot_satellite_panel(fig: plt.Figure, rect: tuple, panel_label: str = "f)"):
 
 
 # ============================================================
-# 3. COMBINED PANEL GENERATOR
+# 3. COMBINED 2x3 PANEL GENERATOR
 # ============================================================
 
 def generate_combined_figure(soundings_indices: list, output_filepath: str):

@@ -29,11 +29,14 @@ OUTPUT_DIR = "data/output"
 
 # Define default stations with metadata: (station_name, file_name, latitude, longitude)
 STATIONS_CONFIG = [
-    ("City", "City_data.csv", Lat, Lon)
-    ]
+    ("Corumbá", "Corumba_JBN_montini.csv", -19.00, -57.67),
+    ("Foz do Iguaçu", "Foz_JBN_montini.csv", -25.60, -54.48),
+    ("Santa Maria", "Santa_Maria_JBN_montini.csv", -29.72, -53.70),
+]
 
-TARGET_PERCENTILE = 90 # adapt for your percentile
-MIN_PERSISTENCE_SOUNDINGS = 4 # adapt for minimum persistence
+TARGET_PERCENTILE = 90
+MIN_PERSISTENCE_SOUNDINGS = 4
+
 
 def format_station_name(name: str, lat: float = None, lon: float = None) -> str:
     """

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Script: igra_data_process.py
-Description: Performs preprocessing of IGRAv2 (Integrated Global Radiosonde Archive version 2) data.
+Description: Performs preprocessing of IGRAv2 (Integrated Global Radiosonde Archive) data.
 
 Author: Guilherme Almeida dos Santos
 ORCID: https://orcid.org/0009-0006-3696-3468
@@ -18,8 +18,8 @@ import numpy as np
 # Path definitions following project directory standards:
 # BASE_DIR points to the repository root directory (one level up from 'scripts/')
 BASE_DIR = Path(__file__).resolve().parent.parent
-INPUT_PATH = BASE_DIR / "data" / "raw" / "igra-data.txt"
-OUTPUT_PATH = BASE_DIR / "data" / "processed" / "igra_processed.csv"
+INPUT_PATH = BASE_DIR / "data" / "raw" / "BRM00083554-data.txt"
+OUTPUT_PATH = BASE_DIR / "data" / "processed" / "BRM00083554_processed.csv"
 
 
 def parse_igra2(path):
@@ -71,11 +71,11 @@ def parse_igra2(path):
     for col in ["press", "gph", "temp", "rh", "dpdp", "wdir", "wspd"]:
         df[col] = df[col].replace([-9999, -8888, -7777], np.nan)
 
-    # Apply scale factors according to IGRAv2 format specification
+    # Apply scale factors according to IGRAv2 format specification (igra2-data-format.txt)
     df["press_hpa"] = df["press"] / 100      # Pa -> hPa
     df["temp_c"]    = df["temp"] / 10        # Tenths of °C -> °C
     df["rh_pct"]    = df["rh"] / 10          # Scale adjustment for relative humidity
-    df["dpdp_c"]    = df["dpdp"] / 10        # Tenths of °C -> °C
+    df["dpdp_c"]    = df["dpdp"] / 10        # Tenths of °C -> °C (dewpoint depression)
     df["wspd_ms"]   = df["wspd"] / 10        # Tenths of m/s -> m/s
 
     # Create timestamp for each sounding observation
