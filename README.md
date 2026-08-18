@@ -4,12 +4,18 @@ This repository contains the scripts used in the research on an extreme Low-Leve
 
 **Scripts**
 
-- download_wyoming_data.py: downloads sounding data from the University of Wyoming website (https://weather.uwyo.edu/upperair/sounding.shtml).
-- igra_data_process.py: performs preprocessing of IGRAv2 (Integrated Global Radiosonde Archive) data.
-- llj_statistics.py: performs statistical analysis, identifies extreme events, calculates LLJ persistence, and generates visualizations.
-- montini_criteria.py: classifies Low-Level Jet (LLJ) events according to the methodology of Montini et al. (2019) (https://doi.org/10.1029/2018JD029634)).
-- process_wyoming_data.py: preprocesses and standardizes atmospheric sounding data downloaded from the University of Wyoming into an IGRAv2-compatible format.
-- skewt_satellite_images.py: generates combined Skew-T diagrams, hodographs, and GOES satellite imagery for atmospheric analysis.
+* `download_wyoming_data.py`: downloads sounding data from the University of Wyoming website (https://weather.uwyo.edu/upperair/sounding.shtml). In addition to the required files, it requires the station number, start date, end date, and sounding times.
+
+* `igra_data_process.py`: performs preprocessing of IGRAv2 (Integrated Global Radiosonde Archive) data. It only requires an IGRAv2 file (https://www.ncei.noaa.gov/products/weather-balloon/integrated-global-radiosonde-archive).
+
+* `llj_statistics.py`: performs statistical analysis, identifies extreme events, calculates LLJ persistence, and generates visualizations. In addition to the required files, it requires the city/station name, station file, coordinates, extreme-event percentile, and the number of soundings to be considered for persistence.
+
+* `montini_criteria.py`: classifies Low-Level Jet (LLJ) events according to the methodology of Montini et al. (2019) (https://doi.org/10.1029/2018JD029634). In addition to the required files, it requires the start and end dates. The remaining parameters follow the methodology described by Montini et al. (2019). If a different methodology is desired, the corresponding parameters must be modified.
+
+* `process_wyoming_data.py`: preprocesses and standardizes atmospheric sounding data downloaded from the University of Wyoming into an IGRAv2-compatible format. It only requires the station number and the downloaded file.
+
+* `skewt_satellite_images.py`: generates combined Skew-T diagrams, hodographs, and GOES satellite imagery for atmospheric analysis. In addition to the required files, it requires the sounding dates, satellite dates and information, and the coordinates of the stations, states, and countries.
+
 
 **Citation**
 
