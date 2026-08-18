@@ -1,0 +1,7 @@
+pandas==2.2.3
+numpy==2.2.5
+requests==2.32.3
+xarray==2025.4.0
+matplotlib==3.10.0
+cartopy==0.24.1
+metpy==1.7.1
