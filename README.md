@@ -19,7 +19,7 @@ This repository contains the scripts used in the research on an extreme Low-Leve
 
 **Citation**
 
-Code DOI - If you use any of the scripts in this repository, please cite this software using the DOI: https://doi.org/10.5281/zenodo.21987557
+Code DOI - If you use any of the scripts in this repository, please cite this software using the [DOI](https://doi.org/10.5281/zenodo.21987558)
 
 Dataset DOI: The soundings data used in this research are available at: 
 https://doi.org/10.5281/zenodo.21987615
